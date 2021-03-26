@@ -1,4 +1,3 @@
-FROM openjdk:8
-EXPOSE 6000
-ADD target/my-assignment.war /root/
-ENTRYPOINT ["java","-jar","/root/my-assignment.war"]
+FROM tomcat
+ADD target/my-assignment.war /usr/local/tomcat/webapps/.
+
