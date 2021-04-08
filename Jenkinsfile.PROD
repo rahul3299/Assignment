@@ -1,0 +1,3 @@
+parameters {
+  string(defaultValue: 'us-east-2', description: 'AWS region for the pipeline.', name: 'AWS_REGION')
+}
