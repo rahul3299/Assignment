@@ -1,4 +1,4 @@
-def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-personal']]
+def awsCredentials = [[$class: 'SSH Username with private key', credentialsId: 'c5327666-cedf-4e0b-a712-a88e8adf8399']]
 
 pipeline {
   agent any
