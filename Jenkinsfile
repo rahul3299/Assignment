@@ -61,7 +61,7 @@ pipeline {
                    {
                        script{
                            bat "docker rm --force my-assignment"
-                            bat "docker run -d --name my-assignment -p 9080:8080 rahul3299/my-assignment"
+                            bat "docker run -d --name my-assignment -p 5000:8080 rahul3299/my-assignment"
                        }
                       
                    }
