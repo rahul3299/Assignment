@@ -1,4 +1,4 @@
-def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-personal']]
+def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'c5327666-cedf-4e0b-a712-a88e8adf8399']]
 
 pipeline {
   agent any
@@ -55,6 +55,7 @@ pipeline {
                    bat "docker push rahul3299/my-assignment:${BUILD_NUMBER}"
                }
            }
+    
            stage('Docker Run')
                {
                    steps
