@@ -56,6 +56,18 @@ pipeline {
                }
            }
     
+    stage('Pull image from EC2')
+    {
+      steps
+      { script{
+        
+        ssh -i "rahul.pem" ec2-user@ec2-18-218-110-161.us-east-2.compute.amazonaws.com
+        sh " docker pull rahul3299/my-assignment:${BUILD_NUMBER} "
+        sh "docker rm --force my-assignment"
+                            sh "docker run -d --name my-assignment -p 9095:8080 rahul3299/my-assignment"
+      }}
+    }
+    
            stage('Docker Run')
                {
                    steps
