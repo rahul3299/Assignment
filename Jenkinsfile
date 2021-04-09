@@ -63,10 +63,7 @@ pipeline {
        
        {
         
-        sh "ssh -i "rahul.pem" ec2-user@ec2-18-218-110-161.us-east-2.compute.amazonaws.com"
-        sh " docker pull rahul3299/my-assignment:${BUILD_NUMBER} "
-        sh "docker rm --force my-assignment"
-           sh "docker run -d --name my-assignment -p 9095:8080 rahul3299/my-assignment"
+         bat """ssh -i rahul.pem -t -o StrictHostKeyChecking=no ec2-user@18.218.110.161 "sudo docker rm --force aws-docker; sudo docker run -d --name aws-docker -p 9098:8080 rahul3299/aws-docker:${BUILD_NUMBER}" """
       }
       }
     }
