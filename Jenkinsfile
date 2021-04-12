@@ -63,7 +63,7 @@ pipeline {
        
        {
         
-         bat """ssh -i rahul.pem -t -o StrictHostKeyChecking=no ec2-user@18.218.110.161 "sudo docker rm --force aws-docker; sudo docker run -d --name aws-docker -p 9098:8080 rahul3299/aws-docker:${BUILD_NUMBER}" """
+         bat """ssh -i rahul.pem -t -o StrictHostKeyChecking=no ec2-user@18.222.169.223 "sudo docker rm --force aws-docker; sudo docker run -d --name aws-docker -p 9098:8080 rahul3299/aws-docker:${BUILD_NUMBER}" """
       }
       }
     }
@@ -79,15 +79,7 @@ pipeline {
                       
                    }
                }
-    stage('Trigger PROD Build') {
-  when {
-    branch 'master'
-  }
-
-  steps {
-    build job: '/AWS-PROD', parameters: [string(name: 'AWS_REGION', value: env.AWS_REGION)], wait: false
-  }
-}
+   
             
             
         }
