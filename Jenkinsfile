@@ -55,6 +55,14 @@ pipeline {
                    bat "docker push rahul3299/my-assignment:${BUILD_NUMBER}"
                }
            }
+     stage ('Terraform Plan') {
+    bat "terraform init"
+    bat "terraform plan"
+  }
+
+  stage ('Terraform Apply') {
+    bat "terraform apply"
+  }
     
     stage('Pull image from EC2')
     {
@@ -63,7 +71,7 @@ pipeline {
        
        {
         
-         bat """ssh -i rahul.pem -t -o StrictHostKeyChecking=no ec2-user@18.222.169.223 "sudo docker rm --force my-assignment; sudo docker run -d --name my-assignment -p 9098:8080 rahul3299/my-assignment:${BUILD_NUMBER}" """
+         bat """ssh -i rahul.pem -t -o StrictHostKeyChecking=no ec2-user@${public_ip.value} "sudo docker rm --force my-assignment; sudo docker run -d --name my-assignment -p 90:8080 rahul3299/my-assignment:${BUILD_NUMBER}" """
       }
       }
     }
