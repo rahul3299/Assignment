@@ -13,6 +13,8 @@ pipeline {
   withCredentials(awsCredentials)
 }
   stages{
+    
+    env.PATH += ":/opt/terraform_0.7.13/"
             
             stage('Build'){
                 steps{
