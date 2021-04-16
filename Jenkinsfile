@@ -55,16 +55,19 @@ pipeline {
                    bat "docker push rahul3299/my-assignment:${BUILD_NUMBER}"
                }
            }
-     stage ('Terraform Plan') {
+     stage ('Terraform Plan') 
+    {
        steps {
-    bat "terraform init"
-         bat "terraform plan"}
+         bat "terraform init"
+         bat "terraform plan"
+       }
   }
 
   stage ('Terraform Apply') { 
     steps {
     bat "terraform apply"
-    }}
+    }
+  }
     
     stage('Pull image from EC2')
     {
