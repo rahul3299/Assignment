@@ -23,7 +23,7 @@ pipeline {
                     bat "mvn clean install"
                 }
             }
-          /*  stage('Sonar Analysis'){
+            stage('Sonar Analysis'){
                 steps{
                     withSonarQubeEnv('Sonarqube'){
                         bat 'mvn sonar:sonar'
@@ -44,7 +44,7 @@ pipeline {
                     rtPublishBuildInfo(
                         serverId:'Artifactory')
                 }
-            }  */
+            }  
              stage("Docker Image"){
             steps{
                 bat "docker image build -t rahul3299/my-assignment:${BUILD_NUMBER} ."
