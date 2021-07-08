@@ -66,7 +66,7 @@ pipeline {
        }
   }
 
-  stage ('Terraform Apply') { 
+  /*stage ('Terraform Apply') { 
     steps {
     bat "terraform apply"
     }
@@ -82,7 +82,7 @@ pipeline {
          bat """ssh -i rahul.pem -t -o StrictHostKeyChecking=no ec2-user@${public_ip.value} "sudo docker rm --force my-assignment; sudo docker run -d --name my-assignment -p 90:8080 rahul3299/my-assignment:${BUILD_NUMBER}" """
       }
       }
-    }
+    }*/
     
            stage('Docker Run')
                {
