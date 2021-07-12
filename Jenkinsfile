@@ -23,13 +23,13 @@ pipeline {
                     bat "mvn clean install"
                 }
             }
-            stage('Sonar Analysis'){
+            /*stage('Sonar Analysis'){
                 steps{
                     withSonarQubeEnv('Sonarqube'){
                         bat 'mvn sonar:sonar'
                     }
                 }
-            }
+            }*/
             stage('Artifactory'){
                 steps{
                     rtMavenDeployer(
